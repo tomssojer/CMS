@@ -1,3 +1,7 @@
+# files
 cms
-.vscode
 .env
+
+# dirs
+.vscode
+images/

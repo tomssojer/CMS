@@ -15,13 +15,21 @@ func main() {
 
 	router := gin.Default()
 
-	comp := router.Group("/components")
+	text := router.Group("/text")
 	{
-		comp.GET("", api.GetComponents)
-		comp.GET(":id", api.GetComponentById)
-		comp.POST("", api.PostComponent)
-		comp.PUT(":id", api.PutComponent)
-		comp.DELETE(":id", api.DeleteComponent)
+		text.GET("", api.GetText)
+		text.GET(":id", api.GetTextById)
+		text.POST("", api.PostText)
+		text.PUT(":id", api.PutText)
+		text.DELETE(":id", api.DeleteText)
+	}
+	image := router.Group("/images")
+	{
+		image.GET("", api.GetImages)
+		image.GET(":id", api.GetImageById)
+		image.POST("", api.PostImage)
+		image.PUT(":id", api.PutImage)
+		image.DELETE(":id", api.DeleteImage)
 	}
 
 	router.Run()

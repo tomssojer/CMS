@@ -11,5 +11,7 @@ func init() {
 }
 
 func main() {
-	initialize.DB.AutoMigrate(&types.Component{})
+	initialize.DB.AutoMigrate(
+		&types.Text{},
+		&types.Image{})
 }
