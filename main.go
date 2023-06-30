@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/tomssojer/cms/api"
 	"github.com/tomssojer/cms/initialize"
@@ -15,7 +16,12 @@ func main() {
 
 	router := gin.Default()
 
-	text := router.Group("/text")
+	corsConfig := cors.DefaultConfig()
+	corsConfig.AllowOrigins = []string{"*"}
+	corsConfig.AddAllowMethods("GET")
+	router.Use(cors.New(corsConfig))
+
+	text := router.Group("/api/text")
 	{
 		text.GET("", api.GetText)
 		text.GET(":id", api.GetTextById)
@@ -23,7 +29,7 @@ func main() {
 		text.PUT(":id", api.PutText)
 		text.DELETE(":id", api.DeleteText)
 	}
-	image := router.Group("/images")
+	image := router.Group("/api/images")
 	{
 		image.GET("", api.GetImages)
 		image.GET(":id", api.GetImageById)

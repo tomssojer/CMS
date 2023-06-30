@@ -31,7 +31,12 @@ func GetTextById(c *gin.Context) {
 func PostText(c *gin.Context) {
 
 	var properties types.BasicText
-	c.Bind(&properties)
+
+	if err := c.Bind(&properties); err != nil {
+		c.IndentedJSON(http.StatusBadRequest, gin.H{"bind error": err.Error()})
+		return
+	}
+
 	newComponent := types.Text{
 		Used:    properties.Used,
 		Name:    properties.Name,
@@ -46,7 +51,6 @@ func PostText(c *gin.Context) {
 	}
 
 	c.IndentedJSON(http.StatusCreated, newComponent)
-
 }
 
 // Change an existing text

@@ -1,0 +1,24 @@
+nav {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+}
+
+nav p {
+    left: 20px;
+    margin: 0;
+    padding: 0 40px;
+}
+
+.sidebar-button {
+    height: 50px;
+    line-height: 50px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.sidebar-button:hover {
+    cursor: pointer;
+    background-color: rgb(77, 251, 193);
+
+}

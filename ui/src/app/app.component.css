@@ -1,0 +1,17 @@
+.root-container {
+    display: flex;
+    height: 100vh;
+}
+
+app-sidebar {
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    /* background-color: aquamarine; */
+}
+
+.main-container {
+    /* background-color: aqua; */
+    flex: 1;
+    text-align: center;
+}
