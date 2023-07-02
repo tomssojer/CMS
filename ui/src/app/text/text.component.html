@@ -1,5 +1,9 @@
-<p>text works!</p>
-<ul *ngFor="let text of textArr">
-  <li>{{ text.Name }}</li>
-  <li>{{ text.Content }}</li>
-</ul>
+<button class="button" (click)="openModal()">New Text Component</button>
+
+<div>
+  <div *ngFor="let text of textArr" class="list-text">
+    <p>{{ text.Name }}</p>
+    <p>{{ text.Content }}</p>
+    <br />
+  </div>
+</div>

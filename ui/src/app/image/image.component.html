@@ -1,1 +1,9 @@
-<p>image works!</p>
+<button class="button">New Image Component</button>
+
+<div>
+  <div *ngFor="let image of imageArr" class="list-image">
+    <p>{{ image.Name }}</p>
+    <p>{{ image.Url }}</p>
+    <br />
+  </div>
+</div>
