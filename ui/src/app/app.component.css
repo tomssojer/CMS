@@ -1,18 +1,32 @@
+html {
+    height: 100%;
+}
+
 .root-container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 }
 
 app-sidebar {
+    position: fixed;
     top: 0;
     left: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
     overflow-x: hidden;
-    background-color: aquamarine;
+    background-color: var(--beige);
+    border-right: 1px;
+    border-right-style: groove;
 }
 
 .main-container {
-    padding-top: 50px;
-    background-color: aqua;
+    margin-left: var(--sidebar-width);
+    margin-top: 50px;
     flex: 1;
-    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    app-sidebar {width: var(--sidebar-width-media);}
+    .main-container {margin-left: var(--sidebar-width-media);}
 }

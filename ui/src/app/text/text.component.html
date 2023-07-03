@@ -1,9 +1,35 @@
-<button class="button" (click)="openModal()">New Text Component</button>
-
-<div>
-  <div *ngFor="let text of textArr" class="list-text">
-    <p>{{ text.Name }}</p>
-    <p>{{ text.Content }}</p>
-    <br />
-  </div>
+<div class="buttons">
+  <button class="button post-button" (click)="openPostTextModal()">
+    New Text Component
+  </button>
+  <button
+    [disabled]="true"
+    id="delete-text-button"
+    class="button delete-button"
+    (click)="openDeleteModal()"
+  >
+    Delete
+  </button>
 </div>
+
+<form class="selection-list">
+  <div *ngFor="let text of textArr" class="list-text">
+    <div class="list-items">
+      <input
+        type="checkbox"
+        id="checkbox-{{ text.ID }}"
+        name="checkbox"
+        class="checkbox-input"
+      />
+      <label
+        class="checkbox-label"
+        for="checkbox-{{ text.ID }}"
+        (click)="toggleDeleteButton(text.ID)"
+      >
+        <p class="item-id">id: {{ text.ID }}</p>
+        <p>name: {{ text.Name }}</p>
+        <p>content: {{ text.Content }}</p>
+      </label>
+    </div>
+  </div>
+</form>

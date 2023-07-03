@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-post-modal',
-  templateUrl: './post-modal.component.html',
-  styleUrls: ['./post-modal.component.css'],
+  selector: 'app-post-text',
+  templateUrl: './post-text.component.html',
+  styleUrls: ['../modals.css'],
 })
-export class PostModalComponent {
+export class PostTextComponent {
   constructor(
-    public dialog: MatDialogRef<PostModalComponent>,
+    public dialog: MatDialogRef<PostTextComponent>,
     private http: HttpClient
   ) {}
 
@@ -17,7 +17,7 @@ export class PostModalComponent {
     this.dialog.close();
   }
 
-  postText(text: { name: string; content: string }) {
+  postText(text: { id: number; name: string; content: string }) {
     console.log(text);
 
     this.http.post('http://localhost:8080/api/text', text).subscribe((res) => {

@@ -1,4 +1,9 @@
-<button class="button">New Image Component</button>
+<div class="buttons">
+  <button class="button post-button" (click)="openModal()">
+    New Image Component
+  </button>
+  <button class="button delete-button">Delete</button>
+</div>
 
 <div>
   <div *ngFor="let image of imageArr" class="list-image">

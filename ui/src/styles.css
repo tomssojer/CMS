@@ -1,12 +1,79 @@
+:root {
+    --sidebar-width: 300px;
+    --sidebar-width-media: 200px;
+
+    /* Colors */
+    --light-green: #606c38;
+    --dark-green: #283618;
+    --beige: #fefae0;
+    --light-orange: #dda15e;
+    --dark-orange: #bc6c25; 
+}
+
+/* Shared between text and image components */
+.checkbox-label {
+    padding: 10px 40px 0 40px; 
+    margin: 0;
+    width: 100%;
+    border-top: 1px;
+    border-top-style: groove;
+    border-color: var(--dark-green);
+    transition: 0.2s;
+}
+
+.checkbox-label:hover {
+    cursor: pointer;
+    background-color: var(--light-orange);
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkbox-input:checked + .checkbox-label {
+    background-color: var(--light-orange);
+}
+
+.item-id {
+    color: grey;
+    font-size: smaller;
+}
+
+/* Shared between buttons */
 .button {
-    background-color: darkcyan;
-    padding: 10px;
-    margin: 10px;
+    background-color: var(--beige);
+    line-height: 50px;
+    padding: 0 10px;
     border: 0;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 .button:hover {
     cursor: pointer;
-    background-color: antiquewhite;
+    background-color: var(--light-orange);
+}
+
+.post-button {
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+.delete-button {
+    margin-left: 20px;
+    background-color: var(--dark-orange);
+}
+
+.delete-button:disabled {
+    background-color: rgb(235, 235, 235);
+    color: rgb(136, 136, 136);
+    cursor: default;
+}
+
+@media only screen and (max-width: 600px) {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+
+    }
 }

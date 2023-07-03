@@ -1,0 +1,25 @@
+<div class="modal-background">
+  <form
+    class="form"
+    #imageForm="ngForm"
+    (ngSubmit)="postImage(imageForm.value)"
+  >
+    <div mat-dialog-title>Data for a new image component</div>
+
+    <mat-dialog-content>
+      <div class="input-group">
+        <label for="name">Enter name</label>
+        <input type="text" name="name" id="name" ngModel />
+      </div>
+
+      <button class="button">Insert image</button>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close class="button">Cancel</button>
+      <button mat-button mat-dialog-close type="submit" class="button">
+        Submit
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

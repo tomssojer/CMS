@@ -1,7 +1,7 @@
 nav {
     display: flex;
     flex-direction: column;
-    padding-top: 40px;
+    margin-top: 50px;
 }
 
 nav p {
@@ -15,10 +15,11 @@ nav p {
     line-height: 50px;
     font-size: large;
     font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 .sidebar-button:hover {
     cursor: pointer;
-    background-color: rgb(77, 251, 193);
-
+    background-color: #bc6c25;
 }
