@@ -1,5 +1,5 @@
 :root {
-    --sidebar-width: 300px;
+    --sidebar-width: 250px;
     --sidebar-width-media: 200px;
 
     /* Colors */
@@ -61,19 +61,29 @@
 
 .delete-button {
     margin-left: 20px;
+    max-width: 100px;
     background-color: var(--dark-orange);
 }
 
 .delete-button:disabled {
-    background-color: rgb(235, 235, 235);
-    color: rgb(136, 136, 136);
+    background-color: rgb(245, 243, 243);
+    color: rgb(161, 160, 160);
     cursor: default;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
     .buttons {
         display: flex;
         flex-direction: column;
+    }
 
+    .post-button {
+        max-width: 200px;
+        margin-bottom: 20px;
+    }
+
+    .delete-button {
+        margin-left: 40px;
+        margin-bottom: 40px;
     }
 }
