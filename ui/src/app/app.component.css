@@ -18,6 +18,7 @@ app-sidebar {
     background-color: var(--beige);
     border-right: 1px;
     border-right-style: groove;
+    z-index: 100;
 }
 
 .main-container {

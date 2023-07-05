@@ -4,6 +4,7 @@
   </button>
   <button
     [disabled]="true"
+    mat-raised-button
     id="delete-text-button"
     class="button delete-button"
     (click)="openDeleteModal()"
@@ -14,22 +15,35 @@
 
 <form class="selection-list">
   <div *ngFor="let text of textArr" class="list-text">
-    <div class="list-items">
-      <input
-        type="checkbox"
-        id="checkbox-{{ text.ID }}"
-        name="checkbox"
-        class="checkbox-input"
-      />
-      <label
-        class="checkbox-label"
-        for="checkbox-{{ text.ID }}"
-        (click)="toggleDeleteButton(text.ID)"
-      >
-        <p class="item-id">id: {{ text.ID }}</p>
-        <p>name: {{ text.Name }}</p>
-        <p>content: {{ text.Content }}</p>
+    <div class="container-checkbox">
+      <label class="checkbox-label" for="checkbox-{{ text.ID }}">
+        <input
+          type="checkbox"
+          id="checkbox-{{ text.ID }}"
+          name="checkbox"
+          class="checkbox-input"
+          (click)="toggleDeleteButton(text.ID)"
+        />
       </label>
+    </div>
+    <div
+      class="list-items"
+      id="item-{{ text.ID }}"
+      data-attr="true"
+      (click)="openChangeContentModal(text)"
+    >
+      <div class="list-left">
+        <div class="list-left-keys">
+          <p class="item-id">id</p>
+          <p>name</p>
+          <p>content</p>
+        </div>
+        <div class="list-left-values">
+          <p class="item-id">{{ text.ID }}</p>
+          <p>{{ text.Name }}</p>
+          <p>{{ text.Content }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </form>

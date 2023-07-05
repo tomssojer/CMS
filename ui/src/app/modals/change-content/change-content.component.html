@@ -1,0 +1,42 @@
+<div class="modal-background">
+  <form class="form" #textForm="ngForm" (ngSubmit)="changeContent(textForm.value)">
+    <div mat-dialog-title>Change component properties</div>
+
+    <mat-dialog-content>
+      <div class="input-group">
+        <label for="name">Enter name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="{{ data.injectedText.Name }}"
+          required
+          ngModel
+          />
+      </div>
+      <div class="input-group">
+        <label for="content">Enter content</label>
+        <textarea
+          name="content"
+          id="content"
+          placeholder="{{ data.injectedText.Content }}"
+          required
+          ngModel
+        ></textarea>
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close class="button">Cancel</button>
+      <button
+        [disabled]="!textForm.form.valid"
+        mat-button
+        mat-dialog-close
+        type="submit"
+        class="button"
+      >
+        Update
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

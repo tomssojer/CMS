@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { PostImageComponent } from './modals/post-image/post-image.component';
 import { PostTextComponent } from './modals/post-text/post-text.component';
 import { DeleteComponent } from './modals/delete/delete.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChangeContentComponent } from './modals/change-content/change-content.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { DeleteComponent } from './modals/delete/delete.component';
     PostImageComponent,
     PostTextComponent,
     DeleteComponent,
+    ChangeContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { DeleteComponent } from './modals/delete/delete.component';
     FormsModule,
     MatListModule,
     MatGridListModule,
+    FontAwesomeModule,
   ],
   providers: [
     {

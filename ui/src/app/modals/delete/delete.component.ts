@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Observable, forkJoin } from 'rxjs';
 import { TextService } from 'src/app/text.service';
 
@@ -12,18 +12,26 @@ import { TextService } from 'src/app/text.service';
 export class DeleteComponent {
   constructor(
     private http: HttpClient,
-    private textService: TextService,
-    @Inject(MAT_DIALOG_DATA) public data: { id: number }
+    public modalRef: MatDialogRef<DeleteComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { idArr: number[] }
   ) {}
 
   deleteComponent() {
-    // for (let i = 0; i < idArr.length; i++) {
-    //   console.log('http://localhost:8080/api/' + idArr[i]);
+    var observables = [];
 
-    return this.http
-      .delete('http://localhost:8080/api/text/' + this.data.id)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    for (let i = 0; i < this.data.idArr.length; i++) {
+      observables.push(
+        this.http.delete('http://localhost:8080/api/text/' + this.data.idArr[i])
+      );
+    }
+
+    return forkJoin(observables).subscribe(() => {
+      // Close after finished forkJoin
+      this.closeModal();
+    });
+  }
+
+  closeModal() {
+    this.modalRef.close();
   }
 }
