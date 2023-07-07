@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-post-text',
@@ -20,8 +21,10 @@ export class PostTextComponent {
   postText(text: { id: number; name: string; content: string }) {
     console.log(text);
 
-    this.http.post('http://localhost:8080/api/text', text).subscribe((res) => {
-      console.log(res);
-    });
+    this.http
+      .post(environment.gateway + environment.textApi, text)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 }

@@ -1,5 +1,9 @@
 <div class="modal-background">
-  <form class="form" #textForm="ngForm" (ngSubmit)="changeContent(textForm.value)">
+  <form
+    class="form"
+    #textForm="ngForm"
+    (ngSubmit)="changeTextContent(textForm.value)"
+  >
     <div mat-dialog-title>Change component properties</div>
 
     <mat-dialog-content>
@@ -9,19 +13,19 @@
           type="text"
           name="name"
           id="name"
-          placeholder="{{ data.injectedText.Name }}"
           required
-          ngModel
-          />
+          ngModel="{{data.injectedText.Name}}"
+        />
       </div>
       <div class="input-group">
         <label for="content">Enter content</label>
         <textarea
           name="content"
           id="content"
-          placeholder="{{ data.injectedText.Content }}"
+          class="content"
+          value="content"
           required
-          ngModel
+          ngModel="{{ data.injectedText.Content }}"
         ></textarea>
       </div>
     </mat-dialog-content>

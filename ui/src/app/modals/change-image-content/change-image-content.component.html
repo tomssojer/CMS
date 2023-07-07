@@ -1,0 +1,38 @@
+<div class="modal-background">
+  <form
+    class="form"
+    #textForm="ngForm"
+    (ngSubmit)="changeImageContent(textForm.value)"
+  >
+    <div mat-dialog-title>Change component properties</div>
+
+    <mat-dialog-content>
+      <div class="input-group">
+        <label for="name">Enter name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          ngModel="{{ data.injectedImage.Name }}"
+        />
+      </div>
+      <div class="input-group">
+        <img src="file://How-to-Make-a-GIF-1.gif" alt="image here" />
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close class="button">Cancel</button>
+      <button
+        [disabled]="!textForm.form.valid"
+        mat-button
+        mat-dialog-close
+        type="submit"
+        class="button"
+      >
+        Update
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

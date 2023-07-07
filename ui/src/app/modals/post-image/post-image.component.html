@@ -1,18 +1,31 @@
 <div class="modal-background">
-  <form
-    class="form"
-    #imageForm="ngForm"
-    (ngSubmit)="postImage(imageForm.value)"
-  >
+  <form class="form" #imageForm="ngForm" (ngSubmit)="postImage()">
     <div mat-dialog-title>Data for a new image component</div>
 
     <mat-dialog-content>
-      <div class="input-group">
+      <!-- <div class="input-group">
         <label for="name">Enter name</label>
-        <input type="text" name="name" id="name" ngModel />
-      </div>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Component name"
+          [required]="true"
+          ngModel
+        />
+      </div> -->
 
-      <button class="button">Insert image</button>
+      <div class="input-group">
+        <input
+          type="file"
+          name="file"
+          id="file"
+          enctype="multipart/form-data"
+          (change)="onSelected($event)"
+          required
+          ngModel
+        />
+      </div>
     </mat-dialog-content>
 
     <mat-dialog-actions align="end">

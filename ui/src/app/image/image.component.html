@@ -1,14 +1,50 @@
 <div class="buttons">
-  <button class="button post-button" (click)="openModal()">
+  <button
+    mat-raised-button
+    class="button post-button"
+    (click)="openPostImageModal()"
+  >
     New Image Component
   </button>
-  <button class="button delete-button">Delete</button>
+  <button
+    [disabled]="true"
+    mat-raised-button
+    id="delete-image-button"
+    class="button delete-button"
+    (click)="openDeleteModal()"
+  >
+    Delete
+  </button>
 </div>
 
-<div>
-  <div *ngFor="let image of imageArr" class="list-image">
-    <p>{{ image.Name }}</p>
-    <p>{{ image.Url }}</p>
-    <br />
+<form class="selection-list">
+  <div *ngFor="let image of imageArr" class="list">
+    <div class="container-checkbox">
+      <label class="checkbox-label" for="checkbox-{{ image.ID }}">
+        <input
+          type="checkbox"
+          id="checkbox-{{ image.ID }}"
+          name="checkbox"
+          class="checkbox-input"
+          (click)="toggleDeleteButton(image.ID)"
+        />
+      </label>
+    </div>
+    <div
+      class="list-items"
+      id="item-{{ image.ID }}"
+      (click)="openChangeContentModal(image)"
+    >
+      <div class="list-keys">
+        <p class="item item-id">id</p>
+        <p class="item">name</p>
+        <p class="item">url</p>
+      </div>
+      <div class="list-values">
+        <p class="item item-id">{{ image.ID }}</p>
+        <p class="item">{{ image.Name }}</p>
+        <p class="item">{{ image.Url }}</p>
+      </div>
+    </div>
   </div>
-</div>
+</form>

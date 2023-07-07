@@ -18,6 +18,7 @@ import { PostTextComponent } from './modals/post-text/post-text.component';
 import { DeleteComponent } from './modals/delete/delete.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChangeContentComponent } from './modals/change-content/change-content.component';
+import { ChangeImageContentComponent } from './modals/change-image-content/change-image-content.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ChangeContentComponent } from './modals/change-content/change-content.c
     PostTextComponent,
     DeleteComponent,
     ChangeContentComponent,
+    ChangeImageContentComponent,
   ],
   imports: [
     BrowserModule,

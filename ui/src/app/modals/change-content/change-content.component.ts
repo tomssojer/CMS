@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IImage } from 'src/app/models/Image';
 import { IText } from 'src/app/models/Text';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-change-content',
@@ -10,15 +12,15 @@ import { IText } from 'src/app/models/Text';
 })
 export class ChangeContentComponent {
   constructor(
-    private dialog: MatDialogRef<ChangeContentComponent>,
     private http: HttpClient,
-    @Inject(MAT_DIALOG_DATA) public data: { injectedText: IText }
+    @Inject(MAT_DIALOG_DATA)
+    public data: { injectedText: IText; injectedImage: IImage }
   ) {}
 
-  changeContent(newText: {id: number, name: string, content: string}) {
+  changeTextContent(newText: { id: number; name: string; content: string }) {
     this.http
       .put(
-        'http://localhost:8080/api/text/' + this.data.injectedText.ID,
+        environment.gateway + environment.textApi + "/" + this.data.injectedText.ID,
         newText
       )
       .subscribe((res) => {

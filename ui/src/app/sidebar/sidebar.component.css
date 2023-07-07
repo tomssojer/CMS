@@ -14,12 +14,11 @@ nav p {
     height: 50px;
     line-height: 50px;
     font-size: large;
-    font-weight: bold;
     border-radius: 5px;
     transition: 0.3s;
 }
 
 .sidebar-button:hover {
     cursor: pointer;
-    background-color: #bc6c25;
+    background-color: var(--green);
 }

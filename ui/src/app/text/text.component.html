@@ -1,5 +1,9 @@
 <div class="buttons">
-  <button class="button post-button" (click)="openPostTextModal()">
+  <button
+    mat-raised-button
+    class="button post-button"
+    (click)="openPostTextModal()"
+  >
     New Text Component
   </button>
   <button
@@ -14,7 +18,7 @@
 </div>
 
 <form class="selection-list">
-  <div *ngFor="let text of textArr" class="list-text">
+  <div *ngFor="let text of textArr" class="list">
     <div class="container-checkbox">
       <label class="checkbox-label" for="checkbox-{{ text.ID }}">
         <input
@@ -29,20 +33,17 @@
     <div
       class="list-items"
       id="item-{{ text.ID }}"
-      data-attr="true"
       (click)="openChangeContentModal(text)"
     >
-      <div class="list-left">
-        <div class="list-left-keys">
-          <p class="item-id">id</p>
-          <p>name</p>
-          <p>content</p>
-        </div>
-        <div class="list-left-values">
-          <p class="item-id">{{ text.ID }}</p>
-          <p>{{ text.Name }}</p>
-          <p>{{ text.Content }}</p>
-        </div>
+      <div class="list-keys">
+        <p class="item item-id">id</p>
+        <p class="item">name</p>
+        <p class="item">content</p>
+      </div>
+      <div class="list-values">
+        <p class="item item-id">{{ text.ID }}</p>
+        <p class="item">{{ text.Name }}</p>
+        <p class="item">{{ text.Content }}</p>
       </div>
     </div>
   </div>

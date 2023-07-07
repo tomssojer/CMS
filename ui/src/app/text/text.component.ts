@@ -15,7 +15,6 @@ export class TextComponent implements OnInit {
   public textArr: IText[] = [];
   public checkedArr: number[] = [];
   public itemCount: number = 0;
-  public currentItemId!: number;
 
   constructor(private textService: TextService, public dialog: MatDialog) {}
 
@@ -40,20 +39,8 @@ export class TextComponent implements OnInit {
   }
 
   openChangeContentModal(injectedText: IText) {
-    const listItem = document.getElementById(
-      'item-' + injectedText.ID
-    ) as HTMLDivElement | null;
-
-    if (listItem != null) {
-      const attribute = listItem.getAttribute('data-attr');
-      if (attribute != 'true') {
-        console.log('Attribute: ', attribute);
-        return;
-      }
-    }
-
     const modalRef = this.dialog.open(ChangeContentComponent, {
-      data: {injectedText: injectedText},
+      data: { injectedText: injectedText },
     });
 
     console.log('Modal opened');
@@ -85,8 +72,6 @@ export class TextComponent implements OnInit {
   }
 
   toggleDeleteButton(id: number) {
-    console.log('Button clicked');
-
     const button = document.getElementById(
       'delete-text-button'
     ) as HTMLButtonElement | null;
@@ -94,16 +79,6 @@ export class TextComponent implements OnInit {
     const input = document.getElementById(
       'checkbox-' + id.toString()
     ) as HTMLInputElement | null;
-
-    const listItem = document.getElementById(
-      'item-' + id
-    ) as HTMLDivElement | null;
-
-    // If false, it should not be opened
-    if (listItem != null && listItem.hasAttribute('data-attr')) {
-      listItem.setAttribute('data-attr', 'false');
-      console.log('Attribute: ', listItem.getAttribute('data-attr'));
-    }
 
     if (input != null && button != null) {
       // If checked is false
@@ -126,10 +101,6 @@ export class TextComponent implements OnInit {
           button.disabled = true;
         }
       }
-    }
-    if (listItem != null && listItem.hasAttribute('data-attr')) {
-      listItem.setAttribute('data-attr', 'true');
-      console.log('Attribute: ', listItem.getAttribute('data-attr'));
     }
   }
 }
